@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const rekognition = require('../controllers/rekognition');
+const apiData = require('../controllers/apiData');
 
-router.route('/rekognition')
-  .post(rekognition.getLabels);
+router.route('/recipes')
+  .post(apiData.getLabels);
 
-router.get('/recipes/:id', rekognition.getRecipeById);
+router.get('/recipes/:id', apiData.getRecipeById);
 
 module.exports = router;

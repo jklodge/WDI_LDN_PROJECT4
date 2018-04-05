@@ -1,10 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import IndexRoute from './components/IndexRoute';
+
+import 'bulma';
+
 class App extends React.Component {
   render() {
     return (
-      <h1>WDI32 Project 4</h1>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/recipes" component={IndexRoute} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
