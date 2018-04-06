@@ -1,0 +1,11 @@
+@import "./components/image.scss";
+@import "./components/icon.scss";
+
+// id on the highest level eg section
+// everything comes under this
+// media queries stay on component or page
+// @import "file path"
+// underscore on file name but not on import
+// @media screen and (max-width: $tablet - 1px) {
+// what you want in here
+// }
