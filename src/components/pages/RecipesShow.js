@@ -23,32 +23,44 @@ class RecipeShow extends React.Component {
   }
   render() {
     if(!this.state.recipe) return null;
-    console.log(this.state.recipe.analyzedInstructions[0].steps);
-    // console.log(this.state.recipe.analyzedInstructions);
     const instructions = this.getRelevantDataFromRecipes();
-    console.log(instructions);
-    // instructions.map((instruction) => console.log(instruction));
-    // const instructions = this.state.recipe.instructions.split(/[0-9]\. /).splice(1);
+    // instructions.map((instruction) => console.log('ingredient ', instruction.ingredient));
+    // instructions.map((instruction) => console.log('equipment ', instruction.equipment));
+    // instructions.map((instruction) => console.log('step', instruction.step));
     return (
       <div>
-        {/* {this.state.recipe.map((data, i) =>
-          <p key={i}>{data.title}</p>
-        )} */}
         <h1>{this.state.recipe.title}</h1>
         <img src={this.state.recipe.image} />
-        {this.state.recipe.diets.map((diet, i) => <p key={i}>- {diet}</p>)}
-        {this.state.recipe.dishTypes.map((dishType, i) => <p key={i}>- {dishType}</p>)}
+        {this.state.recipe.diets.map((diet, i) => <p key={i}>diet - {diet}</p>)}
+        <br />
+        {this.state.recipe.dishTypes.map((dishType, i) => <p key={i}>dishType - {dishType}</p>)}
+        <br />
         <p>Servings: {this.state.recipe.servings}</p>
         <p>Preparation Minutes: {this.state.recipe.preparationMinutes}</p>
         <p>Cooking Minutes: {this.state.recipe.cookingMinutes}</p>
         <p>Ready in Minutes: {this.state.recipe.readyInMinutes}</p>
-        <p>WW Smart points: {this.state.recipe.weightWatchersSmartPoints}</p>
+        <p>WW Smart points: {this.state.recipe.weightWatcherSmartPoints}</p>
         <p>Price per serving: {this.state.recipe.pricePerServing}</p>
-        {/* <p>{instruction.step[0]}</p>
-        {instructions.equipment.} */}
-        {/* {instructions.map((instruction, i) => <p key={i}>{instruction}</p>)} */}
-        {/* <p>{this.state.recipe.instructions}</p> */}
-        {}
+        <br />
+        <ul>
+          <li>You will need:</li>
+          {instructions.map((instruction, i) => <li key={i}>{instruction.equipment.join(', ')}</li>)}
+        </ul>
+        {/* <br />
+        <ul>
+          <li>Ingredients:</li>
+          {instructions.map((instruction, i) => <li key={i}>{instruction.ingredients.join(', ')}</li>)}
+        </ul> */}
+        <br />
+        <ul>
+          <li>Steps:</li>
+          {instructions.map((instruction, i) => <li key={i}>{i+1}. {instruction.step}</li>)}
+        </ul>
+        <br />
+        <ul>
+          <li>Ingredients:</li>
+          {this.state.recipe.extendedIngredients.map((extendedIngredient, i) => <li key={i}>- {extendedIngredient.name}</li>)}
+        </ul>
       </div>
     );
   }

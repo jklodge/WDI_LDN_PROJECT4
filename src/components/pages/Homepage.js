@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Icon from '../homepage/Icon';
+import Icon from '../recipesIndex/Icon';
 
 import { Link } from 'react-router-dom';
 
