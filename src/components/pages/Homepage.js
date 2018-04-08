@@ -21,7 +21,11 @@ class Homepage extends React.Component {
         <h2 className="title is-3">How to:</h2>
         <Icon srcs={this.state.srcs} />
         <Link to="/recipes">
-          <button className="button is-primary">Start cooking now!</button>
+          <button className="button is-primary">Upload an image</button>
+        </Link>
+        {' '}
+        <Link to="/recipes-manual">
+          <button className="button is-primary">Input manually</button>
         </Link>
       </section>
     );

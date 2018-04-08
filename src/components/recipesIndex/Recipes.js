@@ -8,7 +8,7 @@ const Recipes = ({ recipes }) => {
       <h1 className="title is-1">Recipes</h1>
       <ul className="columns is-multiline">
         {recipes.map((recipe, i) =>
-          <li key={i} className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+          <li key={i} className="column is-mobile is-one-third-tablet is-one-quarter-desktop">
             <Link to={`/recipes/${recipe.id}`}>
               <div className="card">
                 <div className="card-image">

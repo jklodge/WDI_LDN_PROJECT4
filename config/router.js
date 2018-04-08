@@ -3,7 +3,9 @@ const apiData = require('../controllers/apiData');
 const auth = require('../controllers/auth');
 
 router.route('/recipes')
-  .post(apiData.getLabels);
+  .post(apiData.getRecipesFromIngredients);
+
+router.route('/possible-food-names').post(apiData.getFoodNamesFromAWSRekognition);
 
 router.get('/recipes/:id', apiData.getRecipeById);
 
