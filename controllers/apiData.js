@@ -10,6 +10,7 @@ const rekognition = new AWS.Rekognition({
 });
 
 const spoonacular = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes';
+// const spoonacular = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex'
 
 /* Return an array of possible food names.
  * @returns {Array}
@@ -52,7 +53,9 @@ function getRecipesFromIngredients(req, res, next) {
     },
     json: true,
     method: 'GET'
-  }).then(data => res.json(data));
+  })
+    .then(data => res.json(data))
+    .catch(next);
 }
 
 function getLabels(req, res, next) {

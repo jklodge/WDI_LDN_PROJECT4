@@ -9,8 +9,7 @@ class RecipesIndex extends React.Component {
 
   state = {
     image: '',
-    recipes: null,
-    isLoading: false,
+    // isLoading: false,
     possibilities: [],
     inputMethodSwitchPressed: false,
     goPressed: false
@@ -52,7 +51,7 @@ class RecipesIndex extends React.Component {
             <form>
               <button onClick={this.handleSubmit} className="button is-primary">Go</button>
             </form>
-            {this.state.goPressed && <Possibilities possibilities={this.state.possibilities}/>}
+            {this.state.goPressed && <Possibilities possibilities={this.state.possibilities} />}
           </div>
         ) : (
           <div>

@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import RecipesIndex from './components/pages/RecipesIndex';
-import RecipesManual from './components/pages/RecipesManual';
 import RecipesFound from './components/pages/RecipesFound';
 import RecipesShow from './components/pages/RecipesShow';
 import Homepage from './components/pages/Homepage';
@@ -28,7 +27,6 @@ class App extends React.Component {
           <section>
             {/* switch allows there to be more than one route under the router */}
             <Switch>
-              <Route path="/recipes-manual" component={RecipesManual} />
               <Route path="/recipes/found" component={RecipesFound} />
               <Route path="/recipes/:id" component={RecipesShow} />
               <Route path="/recipes" component={RecipesIndex} />
