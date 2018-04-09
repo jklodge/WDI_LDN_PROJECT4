@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import Possibilities from '../recipesIndex/Possibilities';
 
@@ -62,7 +61,7 @@ class RecipesIndex extends React.Component {
               onClick={this.toggleInputMethodSwitchPressed}
               className="button is-primary"
             >
-                Back to image shit
+                Back to image uploader
             </button>
           </div>
           //     {/* {!this.state.isLoading ? <Image handleChange={this.handleChange} image={this.state.image} /> : <h1 className="title is-1">LOADING</h1>} */}
