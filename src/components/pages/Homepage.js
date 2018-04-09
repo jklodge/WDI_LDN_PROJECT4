@@ -23,10 +23,10 @@ class Homepage extends React.Component {
         <Link to="/recipes">
           <button className="button is-primary">Upload an image</button>
         </Link>
-        {' '}
+        {/* {' '}
         <Link to="/recipes-manual">
           <button className="button is-primary">Input manually</button>
-        </Link>
+        </Link> */}
       </section>
     );
   }

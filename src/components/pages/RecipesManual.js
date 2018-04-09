@@ -1,7 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-
-import Recipes from '../recipesIndex/Recipes';
+import { Link } from 'react-router-dom';
 
 class RecipesManual extends React.Component {
 
@@ -18,43 +16,42 @@ class RecipesManual extends React.Component {
     this.setState({ [name]: value }, () => console.log(this.state));
   }
 
-  handleSubmit = (e) => {
-    // prevent the page from reloading
-    e.preventDefault();
-    this.setState({ isLoading: true });
-    // make a post request to my API, which is making a get request from the recipes API
-    axios
-      .post('/api/recipes', this.state)
-      .then(res => this.setState({ recipes: res.data }))
-      .then(() => console.log(this.state.recipes));
-  }
+  // handleSubmit = (e) => {
+  //   // prevent the page from reloading
+  //   e.preventDefault();
+  //   this.setState({ isLoading: true });
+  //   // make a post request to my API, which is making a get request from the recipes API
+  //   axios
+  //     .post('/api/recipes', this.state)
+  //     .then(res => this.setState({ recipes: res.data }))
+  //     .then(() => console.log(this.state.recipes));
+  // }
 
   render() {
+    const ingredientList = [ ...this.state ];
     return (
       <section>
-        {!this.state.recipes ?
-          <div>
-            {!this.state.isLoading ?
-              <form onSubmit={this.handleSubmit}>
-                <div className="field">
-                  <label htmlFor="ingredients">Ingredients</label>
-                  <input className="input"
-                    placeholder="Ingredients"
-                    name="ingredients"
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <button className="button is-primary">Submit</button>
-              </form>
-              :
-              <h1 className="title is-1">LOADING</h1>}
-            {/* <form>
-              <button onClick={this.handleSubmit} className="button is-primary">Submit</button>
-            </form> */}
+        <div>
+          {/* <form> */}
+          <div className="field">
+            <label htmlFor="ingredients">Ingredients</label>
+            <input className="input"
+              placeholder="Ingredients"
+              name="ingredients"
+              onChange={this.handleChange}
+            />
           </div>
-          :
-          <Recipes recipes={this.state.recipes} />
-        }
+          {/* <Link to={{pathname: '/recipes/found', state: { ingredients: this.state.ingredients }}}>
+            <button className="button is-primary">Go</button>
+          </Link> */}
+          <Link
+            className="button is-primary"
+            to={`/recipes/found?ingredients=${ingredientList}`}
+          >
+            Find recipes with selected ingredients
+          </Link>
+          {/* </form> */}
+        </div>
       </section>
     );
   }
