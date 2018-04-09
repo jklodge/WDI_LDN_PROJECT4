@@ -58,6 +58,29 @@ function getRecipesFromIngredients(req, res, next) {
     .catch(next);
 }
 
+function getRecipesFromIngredientsAndDiet(req, res, next) {
+  const includeIngredients = req.body.ingredients;
+  const { diet } = req.query;
+  rp({
+    url: `${spoonacular}/searchComplex`,
+    // data from rekognition returned an array, spoonacular API query string needs a list separated by commas
+    qs: {
+      number: 20,
+      includeIngredients,
+      diet
+    },
+    // spoonacular API key goes in the header of the request
+    headers: {
+      'Accept': 'application/json',
+      'X-Mashape-Key': process.env.SPOONACULAR_API_KEY
+    },
+    json: true,
+    method: 'GET'
+  })
+    .then(data => res.json(data.results))
+    .catch(next);
+}
+
 function getLabels(req, res, next) {
   // convert image into base64 as required by AWS rekognition
   let listOfIngredients = null;
@@ -94,10 +117,7 @@ function getLabels(req, res, next) {
       },
       json: true,
       method: 'GET'
-      // trying to remove certain words from the array????????????????????????????????????????
-    }/*, labels.forEach((label, i) => if(label === 'Food') {
-       labels.splice(i, 1))
-    }*/, () => console.log(labels)))
+    }, () => console.log(labels)))
     // send the reponse to the frontend
     .then(response => res.json(response))
     .catch(next);
@@ -126,5 +146,6 @@ module.exports = {
   getLabels,
   getRecipeById,
   getFoodNamesFromAWSRekognition,
-  getRecipesFromIngredients
+  getRecipesFromIngredients,
+  getRecipesFromIngredientsAndDiet
 };

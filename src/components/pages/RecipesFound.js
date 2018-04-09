@@ -9,6 +9,7 @@ import SearchBar from '../recipesIndex/SearchBar';
 class RecipesFound extends React.Component {
   state = {
     recipes: [],
+    veganRecipes: [],
     sortBy: '',
     sortDirection: '',
     query: '',
@@ -23,9 +24,20 @@ class RecipesFound extends React.Component {
       .then(({ data }) => this.setState({ recipes: data}));
   }
 
+  'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?diet=vegan&includeIngredients=onions%2C+lettuce%2C+tomato'
+
   handleSort = (e) => {
-    const [sortBy, sortDirection] = e.target.value.split('|');
-    this.setState({ sortBy, sortDirection });
+    console.log(e.target.value);
+    const { ingredients } = queryString.parse(this.props.location.search);
+    if (e.target.value === 'vegan') {
+      axios
+        .post('/api/recipes?diet=vegan', { ingredients })
+        .then(({ data }) => this.setState({ veganRecipes: data }));
+      // setState of recipes
+    } else {
+      const [sortBy, sortDirection] = e.target.value.split('|');
+      this.setState({ sortBy, sortDirection, veganRecipes: [] });
+    }
   }
 
   handleSearch = (e) => {
@@ -33,6 +45,7 @@ class RecipesFound extends React.Component {
   }
 
   handleSortFilterLogic = () => {
+    if (this.state.veganRecipes.length) return this.state.veganRecipes;
     const { sortBy, sortDirection, query } = this.state;
     const regex = new RegExp(query, 'i');
 

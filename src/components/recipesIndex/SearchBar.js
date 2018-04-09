@@ -12,7 +12,7 @@ const SearchBar = ({ handleSort, handleSearch }) => {
         <option value="">None</option>
         <option value="title|asc">Title (A - Z)</option>
         <option value="title|desc">Title (Z - A)</option>
-        <option value="title|desc">Diet (Vegan)</option>
+        <option value="vegan">Diet (Vegan)</option>
       </select>
       <input
         type="text"
