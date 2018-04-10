@@ -6,6 +6,8 @@ import _ from 'lodash';
 import Recipes from '../recipesIndex/Recipes';
 import SearchBar from '../recipesIndex/SearchBar';
 
+import Auth from '../../lib/Auth';
+
 class RecipesFound extends React.Component {
   state = {
     recipes: [],
@@ -20,18 +22,20 @@ class RecipesFound extends React.Component {
     const { ingredients } = queryString.parse(this.props.location.search);
     // const ingredients = this.props.location.state.ingredients;
     axios
-      .post('/api/recipes', { ingredients })
+      .post('/api/recipes', { ingredients }, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}`}
+      })
       .then(({ data }) => this.setState({ recipes: data}));
   }
-
-  'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?diet=vegan&includeIngredients=onions%2C+lettuce%2C+tomato'
 
   handleSort = (e) => {
     console.log(e.target.value);
     const { ingredients } = queryString.parse(this.props.location.search);
     if (e.target.value === 'vegan') {
       axios
-        .post('/api/recipes?diet=vegan', { ingredients })
+        .post('/api/recipes?diet=vegan', { ingredients }, {
+          headers: { Authorization: `Bearer ${Auth.getToken()}`}
+        })
         .then(({ data }) => this.setState({ veganRecipes: data }));
       // setState of recipes
     } else {

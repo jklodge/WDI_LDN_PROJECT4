@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import Auth from '../../lib/Auth';
+
 class RecipeShow extends React.Component {
 
   state = {
@@ -12,7 +14,9 @@ class RecipeShow extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/recipes/${this.props.match.params.id}`)
+    axios.get(`/api/recipes/${this.props.match.params.id}`, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}`}
+    })
       .then(res => this.setState({ recipe: res.data }, () => console.log(this.state.recipe)));
   }
 

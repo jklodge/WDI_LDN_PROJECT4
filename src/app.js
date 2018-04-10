@@ -13,6 +13,7 @@ import Login from './components/auth/Login';
 import NotFound from './components/common/NotFound';
 import Navbar from './components/common/Navbar';
 import FlashMessages from './components/common/FlashMessages';
+import ProtectedRoute from './components/common/ProtectedRoute';
 
 import 'bulma';
 import './assets/scss/style.scss';
@@ -27,9 +28,12 @@ class App extends React.Component {
           <section>
             {/* switch allows there to be more than one route under the router */}
             <Switch>
-              <Route path="/recipes/found" component={RecipesFound} />
+              {/* <Route path="/recipes/found" component={RecipesFound} />
               <Route path="/recipes/:id" component={RecipesShow} />
-              <Route path="/recipes" component={RecipesIndex} />
+              <Route path="/recipes" component={RecipesIndex} /> */}
+              <ProtectedRoute path="/recipes/found" component={RecipesFound} />
+              <ProtectedRoute path="/recipes/:id" component={RecipesShow} />
+              <ProtectedRoute path="/recipes" component={RecipesIndex} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/" component={Homepage} />

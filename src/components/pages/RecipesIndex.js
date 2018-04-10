@@ -2,8 +2,10 @@ import React from 'react';
 import axios from 'axios';
 
 import Possibilities from '../recipesIndex/Possibilities';
-
 import Image from '../common/Image';
+
+import Auth from '../../lib/Auth';
+
 
 class RecipesIndex extends React.Component {
 
@@ -26,7 +28,9 @@ class RecipesIndex extends React.Component {
     this.setState({ isLoading: true });
     // make a post request to my API, which is making a get request from the recipes API
     axios
-      .post('/api/possible-food-names', { image: this.state.image })
+      .post('/api/possible-food-names', { image: this.state.image }, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}`}
+      })
       .then(res => this.setState({ possibilities: res.data, goPressed: true }))
       .then(() => console.log(this.state));
   }
@@ -41,16 +45,16 @@ class RecipesIndex extends React.Component {
       <section>
         {!this.state.inputMethodSwitchPressed ? (
           <div>
+            <Image handleChange={this.handleChange} image={this.state.image} />
+            <form>
+              <button onClick={this.handleSubmit} className="button is-primary">Go</button>
+            </form>
             <button
               onClick={this.toggleInputMethodSwitchPressed}
               className="button is-primary"
             >
                 Having trouble? Input ingredients manually
             </button>
-            <Image handleChange={this.handleChange} image={this.state.image} />
-            <form>
-              <button onClick={this.handleSubmit} className="button is-primary">Go</button>
-            </form>
             {this.state.goPressed && <Possibilities possibilities={this.state.possibilities} />}
           </div>
         ) : (
