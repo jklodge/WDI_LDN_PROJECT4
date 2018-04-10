@@ -31,9 +31,9 @@ class RecipesFound extends React.Component {
   handleSort = (e) => {
     console.log(e.target.value);
     const { ingredients } = queryString.parse(this.props.location.search);
-    if (e.target.value === 'vegan') {
+    if (['vegan', 'vegetarian', 'pescetarian', 'paleo'].includes(e.target.value)) {
       axios
-        .post('/api/recipes?diet=vegan', { ingredients }, {
+        .post(`/api/recipes?diet=${e.target.value}`, { ingredients }, {
           headers: { Authorization: `Bearer ${Auth.getToken()}`}
         })
         .then(({ data }) => this.setState({ veganRecipes: data }));
