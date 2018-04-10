@@ -14,13 +14,11 @@ class RecipesFound extends React.Component {
     veganRecipes: [],
     sortBy: '',
     sortDirection: '',
-    query: '',
-    diets: []
+    query: ''
   }
 
   componentWillMount() {
     const { ingredients } = queryString.parse(this.props.location.search);
-    // const ingredients = this.props.location.state.ingredients;
     axios
       .post('/api/recipes', { ingredients }, {
         headers: { Authorization: `Bearer ${Auth.getToken()}`}

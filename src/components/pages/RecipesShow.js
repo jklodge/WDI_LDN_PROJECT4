@@ -13,7 +13,8 @@ class RecipeShow extends React.Component {
       steps: false,
       ingredients: false,
       info: false,
-      diets: false
+      diets: false,
+      shoppinglist: false
     }
   }
 
@@ -22,10 +23,11 @@ class RecipeShow extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(res => this.setState({ recipe: res.data }, () => console.log(this.state.recipe)));
+    console.log(this.props.location.state);
   }
 
   getRelevantDataFromRecipes() {
-    const instructions = this.state.recipe.analyzedInstructions[0].steps;
+    const instructions = this.state.recipe.analyzedInstructions[0] ? this.state.recipe.analyzedInstructions[0].steps : [];
     return instructions.map(item => {
       return {
         ingredients: item.ingredients.map(ingredient => ingredient.name),
@@ -37,11 +39,13 @@ class RecipeShow extends React.Component {
   toggleSectionOpened = (e) => {
     const sectionOpened = e.currentTarget.textContent.toLowerCase();
     this.setState({ sectionOpened: { [sectionOpened]: !this.state.sectionOpened[sectionOpened] } });
+    console.log(this.state.sectionOpened);
   }
 
   render() {
     if(!this.state.recipe) return null;
     const instructions = this.getRelevantDataFromRecipes();
+    const missedIngredients = this.props.location.state.missedIngredients;
 
     return (
       <section>
@@ -92,7 +96,6 @@ class RecipeShow extends React.Component {
           header="Steps"
         >
           <ul>
-            <li onClick={((e) => this.toggleSectionOpened(e))}>Steps:</li>
             {instructions.map((instruction, i) => <li key={i}>{i+1}. {instruction.step}</li>)}
           </ul>
         </DataSection>
@@ -104,10 +107,22 @@ class RecipeShow extends React.Component {
           header="Ingredients"
         >
           <ul>
-            <li onClick={((e) => this.toggleSectionOpened(e))}>Ingredients:</li>
-            {this.state.recipe.extendedIngredients.map((extendedIngredient, i) => <li key={i}>- {extendedIngredient.name}</li>)}
+            {this.state.recipe.extendedIngredients.map((extendedIngredient, i) => <li key={i}> {extendedIngredient.name}</li>)}
           </ul>
         </DataSection>
+
+        <br />
+        <DataSection
+          sectionOpened={this.state.sectionOpened.shoppinglist}
+          toggleSectionOpened={this.toggleSectionOpened}
+          header="ShoppingList"
+        >
+          <ul>
+            {missedIngredients.map((missedIngredient, i) => <li key={i}>{missedIngredient.name}</li>
+            )}
+          </ul>
+        </DataSection>
+
       </section>
     );
   }

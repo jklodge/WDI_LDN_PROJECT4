@@ -37,6 +37,8 @@ function getFoodNamesFromAWSRekognition(req, res, next) {
 /* Returns a set of recipes based on the input of a comma-separated `ingredients` list.
  * @returns { Array }
  */
+
+
 function getRecipesFromIngredients(req, res, next) {
   const { ingredients } =  req.body;
   rp({
@@ -44,6 +46,8 @@ function getRecipesFromIngredients(req, res, next) {
     // data from rekognition returned an array, spoonacular API query string needs a list separated by commas
     qs: {
       number: 20,
+      ranking: 2,
+      fillIngredients: true,
       ingredients
     },
     // spoonacular API key goes in the header of the request
@@ -58,6 +62,10 @@ function getRecipesFromIngredients(req, res, next) {
     .catch(next);
 }
 
+// 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=american&diet=vegan&excludeIngredients=coconut%2C+mango&fillIngredients=false&includeIngredients=onions%2C+lettuce%2C+tomato&instructionsRequired=false&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=2&type=main+course'
+//
+// 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1'
+
 function getRecipesFromIngredientsAndDiet(req, res, next) {
   const includeIngredients = req.body.ingredients;
   const { diet } = req.query;
@@ -66,6 +74,8 @@ function getRecipesFromIngredientsAndDiet(req, res, next) {
     // data from rekognition returned an array, spoonacular API query string needs a list separated by commas
     qs: {
       number: 20,
+      ranking: 2,
+      fillIngredients: true,
       includeIngredients,
       diet
     },

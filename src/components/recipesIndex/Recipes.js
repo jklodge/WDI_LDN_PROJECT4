@@ -9,7 +9,10 @@ const Recipes = ({ recipes }) => {
       <ul className="columns is-multiline">
         {recipes.map((recipe, i) =>
           <li key={i} className="column is-mobile is-one-third-tablet is-one-quarter-desktop">
-            <Link to={`/recipes/${recipe.id}`}>
+            <Link to={{
+              pathname: `/recipes/${recipe.id}`,
+              state: { missedIngredients: recipe.missedIngredients }
+            }}>
               <div className="card">
                 <div className="card-image">
                   <figure className="image">
