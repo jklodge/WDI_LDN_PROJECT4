@@ -1,16 +1,16 @@
 #navbar {
-  background-color: $cooler-dull-green;
+  background-color: $cooler-dull-green-opacity7;
   a {
     color: $cooler-pale-yellow;
     &:hover {
-      background-color: $cooler-dull-green;
+      background-color: $cooler-dull-green-opacity7;
       color: $cooler-pale-yellow;
     }
   }
   .navbar-burger {
     color: $cooler-pale-yellow;
     &:hover {
-      backrgound-color: $cooler-dull-green;
+      background-color: $cooler-dull-green-opacity7;
     }
   }
 }

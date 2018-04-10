@@ -6,7 +6,11 @@
   background-image: url(../../assets/images/food-hero-image.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  p, h1 {
+  p {
+    color: $cooler-pastel-blue;
+  }
+  h1 {
+    // color: $mambo-grey;
     color: $cooler-pastel-blue;
   }
 }
