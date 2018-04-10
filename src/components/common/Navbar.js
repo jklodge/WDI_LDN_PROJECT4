@@ -30,10 +30,10 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar">
+      <nav id="navbar" className="navbar">
         <div className="navbar-brand">
-          <Link className="navbar-item" to="/">
-          Meal Pal
+          <Link className="navbar-item" to="/login">
+          Snappy Food
           </Link>
           <div className={`navbar-burger ${this.state.navIsOpen? 'is-active' : ''}`}
             onClick={this.handleToggle}
@@ -54,8 +54,8 @@ class Navbar extends React.Component {
               </div>
               :
               <div>
-                <Link className="navbar-item" to="/register">Register</Link>
                 <Link className="navbar-item" to="/login">Login</Link>
+                <Link className="navbar-item" to="/register">Register</Link>
               </div>
             }
           </div>

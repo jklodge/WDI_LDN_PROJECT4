@@ -1,0 +1,23 @@
+#form {
+  // border: solid $mambo-green 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $mambo-grey-opacity7;
+  height: 300px;
+  width: 350px;
+  margin: 0 auto;
+  border-radius: 10px;
+  // padding: 10px;
+  input {
+    width: 300px;
+  }
+  a {
+    color: $cooler-pastel-blue;
+    display: block;
+    float: right;
+  }
+  h1 {
+    color: $mambo-grey;
+  }
+}

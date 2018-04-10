@@ -1,0 +1,16 @@
+#navbar {
+  background-color: $cooler-dull-green;
+  a {
+    color: $cooler-pale-yellow;
+    &:hover {
+      background-color: $cooler-dull-green;
+      color: $cooler-pale-yellow;
+    }
+  }
+  .navbar-burger {
+    color: $cooler-pale-yellow;
+    &:hover {
+      backrgound-color: $cooler-dull-green;
+    }
+  }
+}

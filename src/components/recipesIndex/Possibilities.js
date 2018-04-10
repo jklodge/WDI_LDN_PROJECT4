@@ -69,7 +69,7 @@ class Possibilities extends React.Component {
           />
         </form>
         <Link
-          className="button is-primary"
+          className="button"
           to={`/recipes/found?ingredients=${ingredientList}`}
         >
           Find recipes with selected ingredients

@@ -68,7 +68,7 @@ class Register extends React.Component {
           />
         </div>
 
-        <button className="button is-primary">Submit</button>
+        <button className="button">Submit</button>
       </form>
     );
   }

@@ -28,9 +28,6 @@ class App extends React.Component {
           <section>
             {/* switch allows there to be more than one route under the router */}
             <Switch>
-              {/* <Route path="/recipes/found" component={RecipesFound} />
-              <Route path="/recipes/:id" component={RecipesShow} />
-              <Route path="/recipes" component={RecipesIndex} /> */}
               <ProtectedRoute path="/recipes/found" component={RecipesFound} />
               <ProtectedRoute path="/recipes/:id" component={RecipesShow} />
               <ProtectedRoute path="/recipes" component={RecipesIndex} />

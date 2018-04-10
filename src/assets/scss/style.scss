@@ -1,5 +1,33 @@
+@import "./utilities/variables/colors.scss";
+@import "./utilities/variables/fonts.scss";
+
 @import "./components/image.scss";
 @import "./components/icon.scss";
+@import "./components/common/navbar.scss";
+@import "./components/pages/login.scss";
+
+// $alfa-slab
+// $gentium-book-basic
+// $shadows-into-light
+// $leckerli
+// $londrina-outline
+// $sonsie
+
+* {
+  box-sizing: border-box;
+  body {
+    background-color: $cooler-pale-yellow;
+    height: 100vh;
+  }
+  h1 {
+    font-family: $londrina-outline;
+    // font-family: $leckerli;
+  }
+  p, a, button, input, select, li {
+    font-family: $shadows-into-light;
+    font-weight: bold;
+  }
+}
 
 // id on the highest level eg section
 // everything comes under this

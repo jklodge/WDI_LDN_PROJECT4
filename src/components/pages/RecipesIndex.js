@@ -47,11 +47,11 @@ class RecipesIndex extends React.Component {
           <div>
             <Image handleChange={this.handleChange} image={this.state.image} />
             <form>
-              <button onClick={this.handleSubmit} className="button is-primary">Go</button>
+              <button onClick={this.handleSubmit} className="button">Go</button>
             </form>
             <button
               onClick={this.toggleInputMethodSwitchPressed}
-              className="button is-primary"
+              className="button"
             >
                 Having trouble? Input ingredients manually
             </button>
@@ -62,7 +62,7 @@ class RecipesIndex extends React.Component {
             <Possibilities possibilities={this.state.possibilities}/>
             <button
               onClick={this.toggleInputMethodSwitchPressed}
-              className="button is-primary"
+              className="button"
             >
                 Back to image uploader
             </button>

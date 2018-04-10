@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
 import Flash from '../../lib/Flash';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -32,29 +33,45 @@ class Login extends React.Component {
 
   render() {
     return(
-      <section>
-        <form onSubmit={this.handleSubmit}>
-          <div className="field">
-            <label htmlFor="email">Email</label>
-            <input
-              className="input"
-              placeholder="Email"
-              name="email"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="field">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              className="input"
-              placeholder="Password"
-              name="password"
-              onChange={this.handleChange}
-            />
-          </div>
-          <button className="button is-primary">Submit</button>
-        </form>
+      <section id="login">
+        <h1 className="title has-text-centered">Welcome</h1>
+        <p className="subtitle has-text-centered">We are snappy food - we give you delicious recipes based on the ingredients in your fridge.</p>
+        <div id="form">
+          <form onSubmit={this.handleSubmit}>
+            <div className="field">
+              {/* <label htmlFor="email">Email</label> */}
+              <p className="control has-icons-left has-icons-right">
+                <input
+                  className="input"
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  onChange={this.handleChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              {/* <label htmlFor="password">Password</label> */}
+              <p className="control has-icons-left">
+                <input
+                  type="password"
+                  className="input"
+                  placeholder="Password"
+                  name="password"
+                  onChange={this.handleChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <button id="button" className="button">Start Cooking!</button>
+            <Link to="/register">Register</Link>
+          </form>
+        </div>
       </section>
     );
   }
