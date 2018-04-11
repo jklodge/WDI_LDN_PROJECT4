@@ -119,7 +119,7 @@ class Register extends React.Component {
             </div>
 
             <button id="button" className="button">Register</button>
-            <Link to="/login">Login</Link>
+            <Link to="/login">Already have an account? Log in here</Link>
           </form>
         </div>
       </section>

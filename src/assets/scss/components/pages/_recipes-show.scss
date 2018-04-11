@@ -3,7 +3,8 @@
   // width: 100vw;
   background-color: $background-color;
   .recipe-info {
-    background-color: grey;
+    background-color: $mambo-grey-opacity7;
+    height: 300px;
   }
   .modal-container {
     display: flex;

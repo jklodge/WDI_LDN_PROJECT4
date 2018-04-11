@@ -49,8 +49,7 @@ class RecipeShow extends React.Component {
   }
 
   handleToggleModal = () => {
-    // for burger menu, toggle between open and closed
-    console.log('click');
+    // for modal, toggle between open and closed
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
   }
 
@@ -156,7 +155,7 @@ class RecipeShow extends React.Component {
             </ul>
           </DataSection>
 
-          <DataSection
+          {/* <DataSection
             sectionOpened={this.state.sectionOpened.shoppinglist}
             toggleSectionOpened={this.toggleSectionOpened}
             header="ShoppingList"
@@ -165,7 +164,7 @@ class RecipeShow extends React.Component {
               {missedIngredients.map((missedIngredient, i) => <li key={i}>{missedIngredient.name}</li>
               )}
             </ul>
-          </DataSection>
+          </DataSection> */}
         </div>
 
       </section>

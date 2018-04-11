@@ -1,16 +1,16 @@
 #image {
   .dropzone {
     height: 300px;
-    background-color: transparent;
+    background-color: $mambo-grey-opacity7;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
   }
   #file-reader {
     background-color: white;
-    border: 1px solid $cooler-pastel-blue;
+    border: 1px solid $mambo-blue;
     border-radius: 5px;
-    color: $cooler-pastel-blue;
+    color: $mambo-blue;
     padding: 10px;
     font-family: $shadows-into-light;
     width: 150px;
