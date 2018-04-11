@@ -6,7 +6,7 @@
   background-image: url(../../assets/images/food-hero-image.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  .grey-box2 {
+  .grey-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,11 +18,17 @@
   }
 
   @media screen and (min-width:$screen-md-min) {
+    .center-container {
+    display: flex;
+    justify-content: center;
+  }
     .grey-box {
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: $mambo-grey-opacity7;
+      height: 70%;
+      width: 80%;
     }
   }
 

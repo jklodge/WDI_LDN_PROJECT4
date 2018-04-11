@@ -25,6 +25,18 @@
   h1 {
     color: $mambo-grey;
   }
+
+  @media screen and (min-width:$screen-sm-min) {
+    height: 70%;
+    width: 80%;
+    input {
+      width: 50vw;
+      height: 50px;
+    }
+    button {
+      width: 10vw;
+    }
+  }
 }
 
 // repeated code - should be a variable???????????????

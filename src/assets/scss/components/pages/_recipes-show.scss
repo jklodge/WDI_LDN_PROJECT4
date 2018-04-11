@@ -53,4 +53,8 @@
     color: $mambo-blue;
     // color: $cooler-pale-yellow;
   }
+  @media screen and (min-width:$screen-md-min) {
+    height: 100vh;
+    // background colour on whole page?
+  }
 }

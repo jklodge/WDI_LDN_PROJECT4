@@ -43,32 +43,38 @@ class RecipesInput extends React.Component {
   render() {
     return (
       <section id="recipes-input">
-        <div className="grey-box2">
+        <div className="grey-box">
           {!this.state.inputMethodSwitchPressed ? (
             <div>
               <Image handleChange={this.handleChange} image={this.state.image} />
               <form>
-                <button id="button" onClick={this.handleSubmit} className="button">Go</button>
+                <div className="center-container">
+                  <button id="button" onClick={this.handleSubmit} className="button">Go</button>
+                </div>
               </form>
-              <button
-                onClick={this.toggleInputMethodSwitchPressed}
-                id="button"
-                className="button"
-              >
-                Having trouble? Input ingredients manually
-              </button>
-              {this.state.goPressed && <Possibilities possibilities={this.state.possibilities} />}
+              <div className="center-container">
+                <button
+                  onClick={this.toggleInputMethodSwitchPressed}
+                  id="button"
+                  className="button"
+                >
+                  Having trouble? Input ingredients manually
+                </button>
+                {this.state.goPressed && <Possibilities possibilities={this.state.possibilities} />}
+              </div>
             </div>
           ) : (
             <div>
               <Possibilities possibilities={this.state.possibilities}/>
-              <button
-                onClick={this.toggleInputMethodSwitchPressed}
-                id="button"
-                className="button"
-              >
-                Back to image uploader
-              </button>
+              <div className="center-container">
+                <button
+                  onClick={this.toggleInputMethodSwitchPressed}
+                  id="button"
+                  className="button"
+                >
+                  Back to image uploader
+                </button>
+              </div>
             </div>
             //     {/* {!this.state.isLoading ? <Image handleChange={this.handleChange} image={this.state.image} /> : <h1 className="title is-1">LOADING</h1>} */}
           )}

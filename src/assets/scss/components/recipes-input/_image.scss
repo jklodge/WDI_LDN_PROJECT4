@@ -17,8 +17,12 @@
   }
 
   @media screen and (min-width:$screen-md-min) {
+    .center-container {
+    display: flex;
+    justify-content: center;
+  }
     .dropzone {
-      background-color: #ccc;
+      width: 40vw;
     }
   }
 }
