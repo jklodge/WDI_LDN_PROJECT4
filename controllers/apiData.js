@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const Promise = require('bluebird');
 const rp = require('request-promise');
-const { foodNameCleaner } = require('../lib/foodNameCleaner');
+const { removeUnwantedWords } = require('../lib/util');
 
 const rekognition = new AWS.Rekognition({
   accessKeyId: process.env.REKOGNITION_API_KEY,
@@ -29,7 +29,7 @@ function getFoodNamesFromAWSRekognition(req, res, next) {
       return resolve(data);
     });
   }).then(data => data.Labels.map(label => label.Name)) // Get names from the AWS response
-    .then(data => data.filter(foodNameCleaner)) // Clean verbose and weird ter,s
+    .then(data => removeUnwantedWords(data)) // Clean verbose and weird ter,s
     .then(data => res.json(data))
     .catch(next);
 }

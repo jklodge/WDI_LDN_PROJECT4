@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
 import Flash from '../../lib/Flash';
+import { Link } from 'react-router-dom';
 
 class Register extends React.Component {
 
@@ -29,47 +30,71 @@ class Register extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="field">
-          <label htmlFor="username">Username</label>
-          <input className="input"
-            placeholder="Username"
-            name="username"
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="email">Email</label>
-          <input
-            className="input"
-            placeholder="Email"
-            name="email"
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            className="input"
-            placeholder="Password"
-            name="password"
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="passwordConfirmation">Password Confirmation</label>
-          <input
-            type="password"
-            className="input"
-            placeholder="Password Confirmation"
-            name="passwordConfirmation"
-            onChange={this.handleChange}
-          />
-        </div>
+      <section id="register">
+        <h1 className="title has-text-centered">Welcome</h1>
+        <p className="subtitle has-text-centered">We are snappy food - we give you delicious recipes based on the ingredients in your fridge.</p>
+        <div id="form" className="grey-box">
+          <form onSubmit={this.handleSubmit}>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input className="input"
+                  placeholder="Username"
+                  name="username"
+                  onChange={this.handleChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-user"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  className="input"
+                  placeholder="Email"
+                  name="email"
+                  type="email"
+                  onChange={this.handleChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  type="password"
+                  className="input"
+                  placeholder="Password"
+                  name="password"
+                  onChange={this.handleChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  type="password"
+                  className="input"
+                  placeholder="Password Confirmation"
+                  name="passwordConfirmation"
+                  onChange={this.handleChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
 
-        <button className="button">Submit</button>
-      </form>
+            <button id="button" className="button">Register</button>
+            <Link to="/login">Login</Link>
+          </form>
+        </div>
+      </section>
     );
   }
 }

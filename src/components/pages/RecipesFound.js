@@ -3,8 +3,8 @@ import axios from 'axios';
 import queryString from 'query-string';
 import _ from 'lodash';
 
-import Recipes from '../recipesIndex/Recipes';
-import SearchBar from '../recipesIndex/SearchBar';
+import Recipes from '../recipesInput/Recipes';
+import SearchBar from '../recipesInput/SearchBar';
 
 import Auth from '../../lib/Auth';
 
@@ -60,7 +60,7 @@ class RecipesFound extends React.Component {
   render() {
     if (!this.state.recipes) return null;
     return (
-      <section>
+      <section id="recipes-found">
         <SearchBar handleSort={this.handleSort} handleSearch={this.handleSearch} recipes={this.handleSortFilterLogic()} />
         <Recipes recipes={this.handleSortFilterLogic()} />
       </section>

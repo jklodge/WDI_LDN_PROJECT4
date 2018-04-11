@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
-import RecipesIndex from './components/pages/RecipesIndex';
+import RecipesInput from './components/pages/RecipesInput';
 import RecipesFound from './components/pages/RecipesFound';
 import RecipesShow from './components/pages/RecipesShow';
-import Homepage from './components/pages/Homepage';
 
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
@@ -22,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <main>
+        <main className="container">
           <FlashMessages />
           <Navbar />
           <section>
@@ -30,10 +29,10 @@ class App extends React.Component {
             <Switch>
               <ProtectedRoute path="/recipes/found" component={RecipesFound} />
               <ProtectedRoute path="/recipes/:id" component={RecipesShow} />
-              <ProtectedRoute path="/recipes" component={RecipesIndex} />
+              <ProtectedRoute path="/recipes" component={RecipesInput} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
-              <Route path="/" component={Homepage} />
+              <Route path="/" render={() => <Redirect to="/login" />} />
               <Route component={NotFound} />
             </Switch>
           </section>

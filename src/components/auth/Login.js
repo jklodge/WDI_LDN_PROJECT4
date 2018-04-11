@@ -36,7 +36,7 @@ class Login extends React.Component {
       <section id="login">
         <h1 className="title has-text-centered">Welcome</h1>
         <p className="subtitle has-text-centered">We are snappy food - we give you delicious recipes based on the ingredients in your fridge.</p>
-        <div id="form">
+        <div id="form" className="grey-box">
           <form onSubmit={this.handleSubmit}>
             <div className="field">
               {/* <label htmlFor="email">Email</label> */}

@@ -1,0 +1,34 @@
+#image {
+  .dropzone {
+    height: 300px;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  #file-reader {
+    background-color: white;
+    border: 1px solid $cooler-pastel-blue;
+    border-radius: 5px;
+    color: $cooler-pastel-blue;
+    padding: 10px;
+    font-family: $shadows-into-light;
+    width: 150px;
+  }
+
+  @media screen and (min-width:$screen-md-min) {
+    .dropzone {
+      background-color: #ccc;
+    }
+  }
+}
+
+
+// @media screen and (max-width: 900px) and (min-width: 600px), (min-width: 1100px) {
+//   div.example {
+//     font-size: 50px;
+//     padding: 50px;
+//     border: 8px solid black;
+//     background: yellow;
+//   }
+// }

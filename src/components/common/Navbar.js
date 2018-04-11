@@ -25,16 +25,22 @@ class Navbar extends React.Component {
     // redirect to recipes page on logout?
     // change this if necessary
     Flash.setMessage('danger', 'You have now logged out.');
-    this.props.history.push('/');
+    this.props.history.push('/login');
   }
 
   render() {
     return (
       <nav id="navbar" className="navbar">
         <div className="navbar-brand">
-          <Link className="navbar-item" to="/login">
-          Snappy Food
-          </Link>
+          {Auth.isAuthenticated() ?
+            <Link className="navbar-item" to="/recipes">
+              <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/>
+            </Link>
+            :
+            <Link className="navbar-item" to="/login">
+              <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/>
+            </Link>
+          }
           <div className={`navbar-burger ${this.state.navIsOpen? 'is-active' : ''}`}
             onClick={this.handleToggle}
           >
@@ -45,19 +51,10 @@ class Navbar extends React.Component {
         </div>
         <div className={`navbar-menu ${this.state.navIsOpen ? 'is-active' : ''}`}>
           <div className="navbar-end">
-
-            {Auth.isAuthenticated() ?
-              <div>
-                <Link className="navbar-item" to="/">Home</Link>
-                <Link className="navbar-item" to="/recipes">Find a recipe</Link>
-                <a className="navbar-item" onClick={this.handleLogout}>Logout</a>
-              </div>
-              :
-              <div>
-                <Link className="navbar-item" to="/login">Login</Link>
-                <Link className="navbar-item" to="/register">Register</Link>
-              </div>
-            }
+            { Auth.isAuthenticated() && <Link className="navbar-item" to="/recipes">Find a recipe</Link>}
+            { Auth.isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>Logout</a>}
+            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
+            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Register</Link>}
           </div>
         </div>
       </nav>

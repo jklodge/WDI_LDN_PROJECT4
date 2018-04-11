@@ -1,0 +1,30 @@
+@import "./components/recipes-input/image.scss";
+@import "./components/common/button.scss";
+
+#recipes-input {
+  height: 100vh;
+  background-image: url(../../assets/images/food-hero-image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  .grey-box2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $mambo-grey-opacity7;
+    height: 75%;
+    width: 350px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  @media screen and (min-width:$screen-md-min) {
+    .grey-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $mambo-grey-opacity7;
+    }
+  }
+
+  // #c2cbd5
+}

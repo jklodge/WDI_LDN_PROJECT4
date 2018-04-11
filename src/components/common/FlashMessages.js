@@ -1,20 +1,35 @@
 import React from 'react';
 import Flash from '../../lib/Flash';
 
-const FlashMessages = () => {
+class FlashMessages extends React.Component {
   // create a variable called messages and store inside the messages we get when we run the method getMessages on the Flash class
-  const messages = Flash.getMessages();
-  Flash.clearMessages();
-  return (
-    <div>
-    {/* <div className="container"> */}
-      {/* get the keys from the messages variable then map over them finding the type from each -- can only give react an array to render */}
-      {messages && Object.keys(messages).map((type, i) =>
-        // will print out the message that has the type danger eg. you must be logged in to do this
-        <div key={i} className={`notification is-${type}`}>{messages[type]}</div>
-      )}
-    </div>
-  );
-};
+  state = {
+    messages: ''
+  }
+
+  componentWillUpdate() {
+    const messages = Flash.getMessages();
+
+    if(!messages) return false;
+
+    this.setState({ messages });
+    Flash.clearMessages();
+
+    setTimeout(() => this.setState({ messages: '' }), 2000);
+  }
+
+  render() {
+    return (
+      <div>
+        {/* <div className="container"> */}
+        {/* get the keys from the messages variable then map over them finding the type from each -- can only give react an array to render */}
+        {this.state.messages && Object.keys(this.state.messages).map(type =>
+          // will print out the message that has the type danger eg. you must be logged in to do this
+          <div key={type} className={`notification is-${type}`}>{this.state.messages[type]}</div>
+        )}
+      </div>
+    );
+  }
+}
 
 export default FlashMessages;
