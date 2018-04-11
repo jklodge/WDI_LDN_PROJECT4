@@ -6,6 +6,7 @@
 @import "./components/pages/register.scss";
 @import "./components/pages/recipes-input.scss";
 @import "./components/pages/recipes-found.scss";
+@import "./components/pages/recipes-show.scss";
 
 @import "./components/common/navbar.scss";
 
@@ -19,8 +20,8 @@
 
 * {
   box-sizing: border-box;
-  background-color: $background-color;
   html {
+    background-color: $background-color;
   }
   body {
     // background-color: $cooler-pale-yellow;

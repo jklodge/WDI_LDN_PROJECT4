@@ -1,3 +1,19 @@
 #recipes-found {
   background-color: $background-color;
+  input {
+    width: 150px;
+    display: block;
+    float: right;
+    margin: 10px
+  }
+  div.select {
+    margin: 10px;
+  }
+  h1 {
+    color: $mambo-blue;
+    // color: $cooler-pale-yellow;
+  }
+  .card-content {
+    padding: 10px;
+  }
 }

@@ -30,34 +30,36 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav id="navbar" className="navbar">
-        <div className="navbar-brand">
-          {Auth.isAuthenticated() ?
-            <Link className="navbar-item" to="/recipes">
-              <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/>
-            </Link>
-            :
-            <Link className="navbar-item" to="/login">
-              <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/>
-            </Link>
-          }
-          <div className={`navbar-burger ${this.state.navIsOpen? 'is-active' : ''}`}
-            onClick={this.handleToggle}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
+      <div>
+        <nav id="navbar" className="navbar">
+          <div className="navbar-brand">
+            {Auth.isAuthenticated() ?
+              <Link className="navbar-item" to="/recipes">
+                <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/>
+              </Link>
+              :
+              <Link className="navbar-item" to="/login">
+                <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/>
+              </Link>
+            }
+            <div className={`navbar-burger ${this.state.navIsOpen? 'is-active' : ''}`}
+              onClick={this.handleToggle}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
-        </div>
-        <div className={`navbar-menu ${this.state.navIsOpen ? 'is-active' : ''}`}>
-          <div className="navbar-end">
-            { Auth.isAuthenticated() && <Link className="navbar-item" to="/recipes">Find a recipe</Link>}
-            { Auth.isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>Logout</a>}
-            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
-            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Register</Link>}
+          <div className={`navbar-menu ${this.state.navIsOpen ? 'is-active' : ''}`}>
+            <div className="navbar-end">
+              { Auth.isAuthenticated() && <Link className="navbar-item" to="/recipes">Find a recipe</Link>}
+              { Auth.isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>Logout</a>}
+              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
+              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Register</Link>}
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     );
   }
 }

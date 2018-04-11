@@ -5,7 +5,7 @@ const Recipes = ({ recipes }) => {
 
   return (
     <div>
-      <h1 className="title is-1">Recipes</h1>
+      <h1 className="title is-1 has-text-centered">Recipes</h1>
       <ul className="columns is-multiline">
         {recipes.map((recipe, i) =>
           <li key={i} className="column is-mobile is-one-third-tablet is-one-quarter-desktop">
@@ -20,7 +20,7 @@ const Recipes = ({ recipes }) => {
                   </figure>
                 </div>
                 <div className="card-content">
-                  <h3 className="title is-4">{recipe.title}</h3>
+                  <h3>{recipe.title}</h3>
                 </div>
               </div>
             </Link>

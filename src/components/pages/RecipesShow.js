@@ -38,7 +38,12 @@ class RecipeShow extends React.Component {
 
   toggleSectionOpened = (e) => {
     const sectionOpened = e.currentTarget.textContent.toLowerCase();
-    this.setState({ sectionOpened: { [sectionOpened]: !this.state.sectionOpened[sectionOpened] } });
+    this.setState({
+      sectionOpened: {
+        ...this.state.sectionOpened,
+        [sectionOpened]: !this.state.sectionOpened[sectionOpened]
+      }
+    });
     console.log(this.state.sectionOpened);
   }
 
@@ -48,8 +53,8 @@ class RecipeShow extends React.Component {
     const missedIngredients = this.props.location.state.missedIngredients;
 
     return (
-      <section>
-        <h1>{this.state.recipe.title}</h1>
+      <section id="recipes-show">
+        <h1 className="title has-text-centered">{this.state.recipe.title}</h1>
         <img src={this.state.recipe.image} />
 
         <br />
@@ -90,7 +95,7 @@ class RecipeShow extends React.Component {
         </DataSection>
 
         <br />
-        <DataSection
+        {instructions.length > 0 && <DataSection
           sectionOpened={this.state.sectionOpened.steps}
           toggleSectionOpened={this.toggleSectionOpened}
           header="Steps"
@@ -98,7 +103,7 @@ class RecipeShow extends React.Component {
           <ul>
             {instructions.map((instruction, i) => <li key={i}>{i+1}. {instruction.step}</li>)}
           </ul>
-        </DataSection>
+        </DataSection>}
 
         <br />
         <DataSection
