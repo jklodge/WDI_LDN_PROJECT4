@@ -20,7 +20,7 @@ const Recipes = ({ recipes }) => {
                   </figure>
                 </div>
                 <div className="card-content">
-                  <p>{recipe.title}</p>
+                  <p className="has-text-centered">{recipe.title}</p>
                 </div>
               </div>
             </Link>

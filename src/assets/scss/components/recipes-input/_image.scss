@@ -1,6 +1,7 @@
 #image {
   .dropzone {
     height: 300px;
+    width: 295px;
     background-color: $mambo-grey-opacity7;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,6 +15,7 @@
     padding: 10px;
     font-family: $shadows-into-light;
     width: 150px;
+    margin-bottom: 10px;
   }
 
   @media screen and (min-width:$screen-md-min) {
@@ -22,7 +24,7 @@
     justify-content: center;
   }
     .dropzone {
-      width: 40vw;
+      width: 295px;
     }
   }
 }

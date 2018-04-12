@@ -10,26 +10,9 @@
 @import "./components/pages/recipes-favourite.scss";
 
 @import "./components/common/navbar.scss";
+@import "./components/common/flash-message.scss";
 
-.card:hover {
-  border-radius: 10px;
-  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
-}
 
-.card {
-  border-radius: 10px;
-  box-shadow: none;
-  font-family: 'Roboto', sans-serif !important;
-}
-
-.card:hover {
-  border-radius: 10px;
-  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
-}
-
-.card-content{
-  padding: 24px 5px;
-}
 
 
 // $alfa-slab
@@ -57,7 +40,11 @@
     font-weight: bold;
   }
   .container {
-    max-width: 95%;
+    // max-width: 95%;
+  }
+  div#form.grey-box {
+    position: relative;
+    top: 10vh;
   }
 }
 

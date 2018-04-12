@@ -1,19 +1,29 @@
 #navbar {
-  background-color: $cooler-pastel-blue;
+  // background-color: $cooler-pastel-blue;
+
+  background: $cooler-pastel-blue; // fallback for older browsers
+  background: -webkit-linear-gradient(to bottom, $cooler-pastel-blue, $background-color);
+  background: linear-gradient(to bottom, $cooler-pastel-blue, $background-color);
   a {
     color: $cooler-pale-yellow;
     &:hover {
-      background-color: $cooler-pastel-blue;
+      background: $cooler-pastel-blue; // fallback for older browsers
+      background: linear-gradient(to bottom, $cooler-pastel-blue, $background-color);
+      background: -webkit-linear-gradient(to bottom, $cooler-pastel-blue, $background-color);
       color: $cooler-pale-yellow;
     }
   }
   .navbar-burger {
     color: $cooler-pale-yellow;
     &:hover {
-      background-color: $cooler-pastel-blue;
+      background: $cooler-pastel-blue; // fallback for older browsers
+      background: linear-gradient(to bottom, $cooler-pastel-blue, $background-color);
+      background: -webkit-linear-gradient(to bottom, $cooler-pastel-blue, $background-color);
     }
   }
   div.navbar-menu.is-active {
-    background-color: $cooler-pastel-blue;
+    background: $cooler-pastel-blue; // fallback for older browsers
+    background: linear-gradient(to bottom, $cooler-pastel-blue, $background-color);
+    background: -webkit-linear-gradient(to bottom, $cooler-pastel-blue, $background-color);
   }
 }

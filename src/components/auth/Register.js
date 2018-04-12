@@ -27,7 +27,7 @@ class Register extends React.Component {
     // redirect to recipes page
     axios.post('/api/register', this.state)
       .then(res => Auth.setToken(res.data.token))
-      .then(() => Flash.setMessage('success', 'Thank you for registering. Please log in.'))
+      .then(() => Flash.setMessage('info', 'Thank you for registering. Please log in.'))
       .then(() => this.props.history.push('/login'))
       .catch(err => this.setState({ errors: err.response.data.errors }));
   }
@@ -35,8 +35,6 @@ class Register extends React.Component {
   render() {
     return (
       <section id="register">
-        <h1 className="title has-text-centered">Welcome</h1>
-        <p className="subtitle has-text-centered">We are snappy food - we give you delicious recipes based on the ingredients in your fridge.</p>
         <div id="form" className="grey-box">
           <form onSubmit={this.handleSubmit}>
             <div className="field">

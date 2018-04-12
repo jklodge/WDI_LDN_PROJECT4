@@ -49,14 +49,14 @@ class RecipesInput extends React.Component {
               <Image handleChange={this.handleChange} image={this.state.image} />
               <form>
                 <div className="center-container">
-                  <button id="button" onClick={this.handleSubmit} className="button">Go</button>
+                  <button id="button" onClick={this.handleSubmit} className="button go-button">Go</button>
                 </div>
               </form>
               <div className="center-container">
                 <button
                   onClick={this.toggleInputMethodSwitchPressed}
                   id="button"
-                  className="button"
+                  className="button trouble-button"
                 >
                   Having trouble? Input ingredients manually
                 </button>

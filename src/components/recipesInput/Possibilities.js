@@ -65,6 +65,7 @@ class Possibilities extends React.Component {
         }
         <form onSubmit={this.addPossibility}>
           <input
+            className="add-ingredient"
             onChange={this.handleChangeInputText}
             type="text"
             placeholder="Add ingredient"

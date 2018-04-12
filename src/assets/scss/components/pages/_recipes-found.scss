@@ -19,4 +19,28 @@
   .image img {
     border-radius: 10px;
   }
+
+  @media screen and (min-width:$screen-md-min) {
+    .card {
+      border-radius: 10px;
+      box-shadow: none;
+      figure.image {
+        background-color: $background-color;
+      }
+      img {
+        -webkit-filter: contrast(120%) opacity(70%); /* Safari 6.0 - 9.0 */
+        filter: contrast(120%) opacity(70%);
+        &:hover {
+          -webkit-filter: opacity(100%); /* Safari 6.0 - 9.0 */
+          filter: opacity(100%);
+        }
+      }
+      .card-content{
+        padding: 24px 5px;
+        background-color: $background-color;
+        color: $mambo-blue;
+      }
+    }
+
+  }
 }

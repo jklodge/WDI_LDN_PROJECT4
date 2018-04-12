@@ -24,7 +24,7 @@ class Navbar extends React.Component {
     Auth.logout();
     // redirect to recipes page on logout?
     // change this if necessary
-    Flash.setMessage('danger', 'You have now logged out.');
+    Flash.setMessage('info', 'You have now logged out.');
     this.props.history.push('/login');
   }
 
@@ -35,11 +35,11 @@ class Navbar extends React.Component {
           <div className="navbar-brand">
             {Auth.isAuthenticated() ?
               <Link className="navbar-item" to="/recipes">
-                <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/>
+                {/* <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/> */}
               </Link>
               :
               <Link className="navbar-item" to="/login">
-                <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/>
+                {/* <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/> */}
               </Link>
             }
             <div className={`navbar-burger ${this.state.navIsOpen? 'is-active' : ''}`}

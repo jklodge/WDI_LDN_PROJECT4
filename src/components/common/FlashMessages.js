@@ -20,7 +20,7 @@ class FlashMessages extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="flash-message">
         {/* <div className="container"> */}
         {/* get the keys from the messages variable then map over them finding the type from each -- can only give react an array to render */}
         {this.state.messages && Object.keys(this.state.messages).map(type =>
