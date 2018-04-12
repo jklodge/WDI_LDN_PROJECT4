@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import RecipesInput from './components/pages/RecipesInput';
 import RecipesFound from './components/pages/RecipesFound';
+import RecipesFavourite from './components/pages/RecipesFavourite';
 import RecipesShow from './components/pages/RecipesShow';
 
 import Register from './components/auth/Register';
@@ -28,6 +29,7 @@ class App extends React.Component {
             {/* switch allows there to be more than one route under the router */}
             <Switch>
               <ProtectedRoute path="/recipes/found" component={RecipesFound} />
+              <ProtectedRoute path="/recipes/favourites" component={RecipesFavourite} />
               <ProtectedRoute path="/recipes/:id" component={RecipesShow} />
               <ProtectedRoute path="/recipes" component={RecipesInput} />
               <Route path="/register" component={Register} />

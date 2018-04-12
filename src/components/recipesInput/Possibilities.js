@@ -2,13 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PossibilityItem = ({ name, onChange, checked }) => (
-  <label>
-    <input
-      type="checkbox"
-      checked={checked}
-      onChange={onChange}
-    />{name}
-  </label>
+  <div id="possibility-item">
+    <label className="checkbox">
+      {name}
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={onChange}
+      />
+    </label>
+  </div>
 );
 
 class Possibilities extends React.Component {
@@ -50,7 +53,7 @@ class Possibilities extends React.Component {
     const ingredientList = [ ...this.state.selected ];
     if(this.state.newItem) ingredientList.push(this.state.newItem);
     return (
-      <div className="possibilities">
+      <div id="possibilities" className="possibilities">
         {
           possibilities.map((name, i ) =>
             <PossibilityItem

@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
+
 import Auth from '../../lib/Auth';
 
 import DataSection from '../recipesShow/DataSection';
@@ -16,7 +18,8 @@ class RecipeShow extends React.Component {
       info: false,
       diets: false,
       shoppinglist: false
-    }
+    },
+    userFavourites: []
   }
 
   componentDidMount() {
@@ -24,7 +27,6 @@ class RecipeShow extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(res => this.setState({ recipe: res.data }, () => console.log(this.state.recipe)));
-    console.log(this.props.location.state);
   }
 
   getRelevantDataFromRecipes() {
@@ -53,6 +55,21 @@ class RecipeShow extends React.Component {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
   }
 
+  handleFavourite = (e) => {
+    console.log(this.state.recipe.title);
+    e.preventDefault();
+    axios.post(`/api/recipes/${this.props.match.params.id}/favourites`, this.state.recipe,
+      {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      .then(res => {
+        const filteredRes = res.data.favourites.filter(fav => fav !== null);
+        this.setState({ userFavourites: filteredRes });
+      })
+      .then(console.log(this.state.userFavourites[0]))
+      .catch(err => console.error(err));
+  }
+
   render() {
     if(!this.state.recipe) return null;
     const instructions = this.getRelevantDataFromRecipes();
@@ -77,10 +94,15 @@ class RecipeShow extends React.Component {
             {this.state.recipe.diets.map((diet, i) => <li key={i}>{diet}</li>)}
           </ul>
         </DataSection> */}
+        <button onClick={this.handleFavourite} className="button">Save recipe</button>
+        <Link to="/recipes/favourites">See your favourite recipes</Link>
 
         <div className="modal-container" onClick={this.handleToggleModal}>
           {/* <div id="recipe-show-modal" className="modal is-active"> */}
           <i className="fas fa-info-circle has-text-info"></i>
+
+
+
           <div id="recipe-show-modal" className={`modal ${this.state.modalIsOpen ? 'is-active' : ''}`}>
             <div className="modal-background"></div>
             <div className="modal-content">
@@ -155,7 +177,7 @@ class RecipeShow extends React.Component {
             </ul>
           </DataSection>
 
-          {/* <DataSection
+          <DataSection
             sectionOpened={this.state.sectionOpened.shoppinglist}
             toggleSectionOpened={this.toggleSectionOpened}
             header="ShoppingList"
@@ -164,7 +186,7 @@ class RecipeShow extends React.Component {
               {missedIngredients.map((missedIngredient, i) => <li key={i}>{missedIngredient.name}</li>
               )}
             </ul>
-          </DataSection> */}
+          </DataSection>
         </div>
 
       </section>

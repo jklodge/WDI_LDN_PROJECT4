@@ -30,7 +30,32 @@ function login(req, res, next) {
     .catch(next);
 }
 
+function createRecipeFavouriteRoute(req, res, next) {
+  req.currentUser.favourites.push(req.body);
+
+  req.currentUser.save()
+    .then(user => res.json(user))
+    .catch(next);
+}
+
+function deleteRecipeFavouriteRoute(req, res, next) {
+  return User.findById(req.currentUser._id)
+    .then(user => {
+      user.favourites = user.favourites.filter(favourite => !favourite.equals(req.params.id));
+      return user.save();
+    })
+    .then(user => res.status(201).json(user))
+    .catch(next);
+}
+
+function me(req, res) {
+  return res.json(req.currentUser);
+}
+
 module.exports = {
   register,
-  login
+  login,
+  me,
+  createRecipeFavouriteRoute,
+  deleteRecipeFavouriteRoute
 };

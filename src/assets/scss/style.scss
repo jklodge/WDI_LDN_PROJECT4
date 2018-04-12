@@ -7,8 +7,29 @@
 @import "./components/pages/recipes-input.scss";
 @import "./components/pages/recipes-found.scss";
 @import "./components/pages/recipes-show.scss";
+@import "./components/pages/recipes-favourite.scss";
 
 @import "./components/common/navbar.scss";
+
+.card:hover {
+  border-radius: 10px;
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: none;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.card:hover {
+  border-radius: 10px;
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+}
+
+.card-content{
+  padding: 24px 5px;
+}
 
 
 // $alfa-slab

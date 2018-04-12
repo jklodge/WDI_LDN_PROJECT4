@@ -10,6 +10,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    div#recipe-show-modal.modal.is-active {
+    margin: 0 auto;
+    background: rgba(255,255,255,0.5);
+    width: 400px;
+    height: 345px;
+    border-radius: 10px;
+  }
     #recipe-show-modal {
       // display: flex;
       // justify-content: center;
