@@ -7,7 +7,7 @@
     "start:server": "nodemon",
     "test:server": "nyc mocha \"test/server/**/*_spec.js\" --require \"test/server/spec_helper\" --recursive --exit",
     "test:client": "mocha --require ignore-styles test/client/helper \"test/client/**/*_test.js\" --recursive --exit",
-    "build": "webpack -p",
+    "build": "webpack",
     "start": "yarn build && node index"
   },
   "author": "Students",
