@@ -87,10 +87,12 @@ class RecipeShow extends React.Component {
 
         <div className="buttons">
           <button onClick={this.handleFavourite} className="button">Save recipe</button>
-          <i className="fas fa-info-circle has-text-info"></i>
         </div>
 
         <div className="modal-container" onClick={this.handleToggleModal}>
+          <div className="buttons">
+            <i className="fas fa-info-circle has-text-info"></i>
+          </div>
 
           <div id="recipe-show-modal" className={`modal ${this.state.modalIsOpen ? 'is-active' : ''}`}>
             <div className="modal-background"></div>
@@ -144,18 +146,18 @@ class RecipeShow extends React.Component {
             </DataSection>
           </div>
 
-          {/* <div className="shopping-list">
+          <div className="shopping-list column">
             <DataSection
               sectionOpened={this.state.sectionOpened.shoppinglist}
               toggleSectionOpened={this.toggleSectionOpened}
               header="ShoppingList"
             >
               <ul>
-                {missedIngredients.map((missedIngredient, i) => <li key={i}>{missedIngredient.name}</li>
+                {missedIngredients.map((missedIngredient, i) => <li key={i}><label className="checkbox">{missedIngredient.name}</label><input type="checkbox" /></li>
                 )}
               </ul>
             </DataSection>
-          </div> */}
+          </div>
         </div>
         <Link to="/recipes/favourites">See your saved recipes</Link>
 

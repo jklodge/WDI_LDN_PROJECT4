@@ -36,10 +36,12 @@ class Navbar extends React.Component {
             {Auth.isAuthenticated() ?
               <Link className="navbar-item" to="/recipes">
                 {/* <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/> */}
+                Home
               </Link>
               :
               <Link className="navbar-item" to="/login">
                 {/* <img src="../../assets/images/snappy-food-logo-banner.jpeg" alt="Snappy Food Logo"/> */}
+                Home
               </Link>
             }
             <div className={`navbar-burger ${this.state.navIsOpen? 'is-active' : ''}`}
