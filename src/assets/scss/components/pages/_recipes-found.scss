@@ -20,7 +20,7 @@
     border-radius: 10px;
   }
 
-  @media screen and (min-width:$screen-md-min) {
+  // @media screen and (min-width:$screen-md-min) {
     .card {
       border-radius: 10px;
       box-shadow: none;
@@ -42,5 +42,5 @@
       }
     }
 
-  }
+  // }
 }

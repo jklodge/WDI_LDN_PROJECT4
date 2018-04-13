@@ -39,12 +39,15 @@
     font-family: $shadows-into-light;
     font-weight: bold;
   }
-  .container {
-    // max-width: 95%;
-  }
   div#form.grey-box {
     position: relative;
     top: 10vh;
+  }
+
+  @media screen and (min-width:$screen-md-min) {
+    .container {
+      max-width: 80vw;
+    }
   }
 }
 
