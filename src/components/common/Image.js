@@ -43,7 +43,7 @@ class Image extends React.Component {
         <div className="center-container">
           <div id="file-reader" className="file has-name">
             <label className="file-label">
-              <input className="file-input" type="file" accept="image/*" ref={element => this.input = element} name="resume" />
+              <input className="file-input" type="file" accept="image/*;capture=camera" ref={element => this.input = element} name="resume" />
               <span className="file-icon">
                 <i className="fas fa-upload"></i>
               </span>

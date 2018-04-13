@@ -12,7 +12,8 @@ const app = express();
 app.use(express.static(`${__dirname}/public`));
 
 mongoose.connect(dbURI);
-app.use(bodyParser.json());
+
+app.use(bodyParser.json({ limit: '5mb' }));
 
 app.use('/api', router);
 
