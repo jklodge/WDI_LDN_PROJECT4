@@ -24,13 +24,13 @@ The app is optimised for mobile, as it was designed mobile-first. If using mobil
 
 The AWS Rekognition API was installed using SDK. Originally it had an image upload limit, but I changed this to 5MB so that users could upload photos using their phone camera. The list that AWS Rekognition returns is often quite broad, so I wrote some middleware in the backend so that this list is filtered, removing words such as "Produce" and "Food".
 
+<p align="center"><img src="https://i.imgur.com/gXC92Y8.jpg" width="700"></p>
+
 The list is then sent using a request-promise straight to the Spoonacular API, which provides a list of recipes based on the ingredients from the list in the previous step. The recipes are displayed in an index-like format, and can be filtered by making a new request to the API. The ingredients are held in the query string of the URL, allowing users to use the back button in the browser to go back to the index of recipes once they have clicked to a different page.
 
+<p align="center"><img src="https://i.imgur.com/jSbDTDZ.png" width="700"></p>
+
 In order to show the recipe details, another request is made to the ID of that recipe, using another request-promise. The user can save recipes, which adds it to an array attached to the user in the database.
-
-<p align="center"><img src="" width="700"></p>
-
-
 
 ---
 ##### Moving Forward
