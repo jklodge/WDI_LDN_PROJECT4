@@ -52,7 +52,6 @@ class RecipesFound extends React.Component {
     const regex = new RegExp(query, 'i');
 
     const orderedRecipes = _.orderBy(this.state.recipes, [sortBy], [sortDirection]);
-    // const filtered = _.filter(orderedRecipes, (recipe) => regex.test(recipe.title && product.brand));
     const filtered = _.filter(orderedRecipes, (recipe) => regex.test(recipe.title));
     return filtered;
   }

@@ -11,7 +11,6 @@ class RecipesInput extends React.Component {
 
   state = {
     image: '',
-    // isLoading: false,
     possibilities: [],
     inputMethodSwitchPressed: false,
     goPressed: false
@@ -76,7 +75,6 @@ class RecipesInput extends React.Component {
                 </button>
               </div>
             </div>
-            //     {/* {!this.state.isLoading ? <Image handleChange={this.handleChange} image={this.state.image} /> : <h1 className="title is-1">LOADING</h1>} */}
           )}
         </div>
       </section>
